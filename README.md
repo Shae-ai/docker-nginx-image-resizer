@@ -8,34 +8,24 @@ example
 
 ```.env
 PORT=80
-IMAGE_HOST=https://storage.googleapis.com/your-project
-NGINX_HOST=storage.googleapis.com
+QUALITY=80
+IMAGE_HOST=https://{storage_account}.blob.core.windows.net/{container}
+NGINX_HOST=localhost
 ```
 
 ## Build and Run
 
 ```
-$ docker build -t nginx-image-resize .
-$ docker run -p 8080:80 --env-file .env nginx-image-resize 
+$ docker-compose build
+$ docker-compose up
 ```
 
 ## Usage
 
 In case your .env is as above example.
 
-If you want to get `https://storage.googleapis.com/your-project/your/file/name.jpg`  
-just GET `http://localhost:8080/your/file/name.jpg`
+If you want to get https://{storage_account}.blob.core.windows.net/{container}/your/file/name.jpg`  
+just GET `http://localhost/your/file/name.jpg`
 
 If you want to resize.  
-just GET `http://localhost:8080/your/file/name.jpg?w=500&h=500&q=100`
-
-## Deploy to heroku
-
-```
-$ heroku config:set IMAGE_HOST=hoge
-$ heroku config:set NGINX_HOST=fuga
-
-$ heroku container:push web
-$ heroku container:release web
-$ heroku open
-```
+just GET `http://localhost/500x500/your/file/name.jpg`
