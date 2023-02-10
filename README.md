@@ -11,6 +11,7 @@ PORT=80
 QUALITY=80
 IMAGE_HOST=https://{storage_account}.blob.core.windows.net/{container}
 NGINX_HOST=localhost
+DNS_RESOLVERS=8.8.8.8 8.8.4.4
 ```
 
 ## Build and Run
