@@ -1,4 +1,4 @@
-FROM nginx:1.17.8-alpine
+FROM nginx:stable-alpine
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY module.conf /etc/nginx/module.conf
