@@ -1,0 +1,14 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - "master"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: "Build & Publish to ACR"
+    uses: Shae-ai/Shared-CICD/.github/workflows/ci.yaml@main
+    with:
+      image_name: "image-resizer"
